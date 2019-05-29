@@ -12,10 +12,9 @@ notifications:
     recipients:
       - gl1776@nyu.edu
     on_success: always
-    on_failure: never
-notifications:
-  email:
-    recipients:
+    on_failure: always
+
+    reciepients:
       - rz1276@nyu.edu
     on_success: always
     on_failure: always
