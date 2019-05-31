@@ -11,9 +11,7 @@ notifications:
   email:
     recipients:
       - gl1776@nyu.edu
-    on_success: always
-    on_failure: always
-
       - rz1276@nyu.edu
     on_success: always
     on_failure: always
+
