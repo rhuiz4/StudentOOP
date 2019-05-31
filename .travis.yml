@@ -8,10 +8,14 @@ script:
 
 
 notifications:
+  slack:
+    rooms: 
+      - nyuoop:96tpH4inaKyjlDRvFDy11aUC #your_TA_slack_channel
+    on_success: always
+    on_failure: never
   email:
     recipients:
-      - gl1776@nyu.edu
-      - rz1276@nyu.edu
+      - your_email@nyu.edu
     on_success: always
-    on_failure: always
+    on_failure: always  
 
