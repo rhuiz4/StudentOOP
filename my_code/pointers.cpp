@@ -7,6 +7,7 @@ using namespace std;
  * Increment n.
  * */
 void inc_by_value(int n) {
+    n++;
 }
 
 
@@ -14,6 +15,7 @@ void inc_by_value(int n) {
  * Increment n.
  * */
 void inc_with_pointer(int* iptr) {
+    (*iptr)++;
 }
 
 
@@ -21,6 +23,7 @@ void inc_with_pointer(int* iptr) {
  * Increment n.
  * */
 void inc_with_reference(int& n) {
+    n++;
 }
 
 
@@ -29,15 +32,11 @@ void inc_with_reference(int& n) {
  * its index in the Thing array.
  * */
 Thing** create_array_of_things(int n) {
-<<<<<<< HEAD
     Thing** tarray = new Thing*[n];
     for (int i = 0; i < n; i++) {
         tarray[i] = new Thing(i);
     }
     return tarray;
-=======
-    return nullptr;
->>>>>>> upstream/master
 }
 
 /*
@@ -74,14 +73,14 @@ void delete_all_things(Thing** things, int n) {
 /*
  * Assign student `s` the TA `ta`.
  * */
-void assignTA(Student& s, Student& ta) {
-    s.ta = &ta;
+void assignTA(Student* s, Student* ta) {
+    s->ta = ta;
 }
 
 /*
  * Print who has which TA.
  * */
-void printTAs(vector<Student> students) {
-    for (Student s : students)
-        cout << s.name << endl;
+void printTAs(vector<Student*>& students) {
+    for (Student* s : students)
+        cout << s->name << endl;
 }
