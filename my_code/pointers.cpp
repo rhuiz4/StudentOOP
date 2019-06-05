@@ -59,7 +59,9 @@ void double_all_things(Thing** things, int n) {
     }
 }
 
-<<<<<<< HEAD
+/*
+ * Delete all of the things, and the Thing array, that you have created.
+ * */
 void delete_all_things(Thing** things, int n) {
     for (int i = 0; i < n; i++) {
         delete things[i];
@@ -69,34 +71,16 @@ void delete_all_things(Thing** things, int n) {
     things = nullptr;
 }
 
-
+/*
+ * Assign student `s` the TA `ta`.
+ * */
 void assignTA(Student& s, Student& ta) {
     s.ta = &ta;
 }
 
-void printTAs(vector<Student> students) {
-    for (Student s : students)
-        cout << s.name << endl;
-=======
-
-/*
- * Delete all of the things, and the Thing array, that you have created.
- * */
-void delete_all_things(Thing** things, int n) {
-}
-
-
-/*
- * Assign student `s` the TA `ta`.
- * */
-void assignTA(Student* s, Student* ta) {
-}
-
-
 /*
  * Print who has which TA.
  * */
-void printTAs(vector<Student*>& students) {
->>>>>>> upstream/master
-}
-
+void printTAs(vector<Student> students) {
+    for (Student s : students)
+        cout << s.name << endl;
