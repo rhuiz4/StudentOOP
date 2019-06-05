@@ -84,3 +84,4 @@ void assignTA(Student& s, Student& ta) {
 void printTAs(vector<Student> students) {
     for (Student s : students)
         cout << s.name << endl;
+}
