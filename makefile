@@ -26,7 +26,7 @@ $(TEST_DIR)/test_complex: $(STUDENT_DIR)/complex.cpp $(TEST_DIR)/test_complex.cp
 
 
 tests: test_hello test_basics test_pointers
-	tests/test_hello
+	 tests/test_hello
 	tests/test_basics
 	tests/test_pointers
 

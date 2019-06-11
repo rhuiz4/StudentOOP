@@ -81,6 +81,9 @@ void assignTA(Student* s, Student* ta) {
  * Print who has which TA.
  * */
 void printTAs(vector<Student*>& students) {
-    for (Student* s : students)
-        cout << s->name << endl;
+    for (Student* s : students) {
+        cout << "Student: " << s->name << "\tTA: ";
+        if (!s->ta) { cout << "None\n";}
+        else { cout << s->ta->name << endl; }
+    }
 }

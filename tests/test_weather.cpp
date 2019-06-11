@@ -31,13 +31,6 @@ int main() {
     get_wreadings(filenm, irkutsk);
 
     cout << irkutsk << endl;
-    
-    ifstream ifs("r.txt");
-    double i;
-    while (ifs >> i) {
-        cout << i << endl;;
-    }
-    
-    ifs.close();
+
     
 }
