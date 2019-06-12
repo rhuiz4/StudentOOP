@@ -7,7 +7,7 @@ using namespace std;
 
 bool operator== (const Complex& c1, const Complex& c2) {
     return (c1.get_real() == c2.get_real())
-        && (c1.get_imag() == c2.get_imag());
+    && (c1.get_imag() == c2.get_imag());
 }
 
 ostream& operator<< (ostream& os, const Complex& c) {
@@ -18,7 +18,7 @@ ostream& operator<< (ostream& os, const Complex& c) {
      * sign for positive numbers.
      * */
     os << setprecision(10) << c.real << showpos
-         << c.imag << "i" << noshowpos << endl;
+    << c.imag << "i" << noshowpos << endl;
     return os;
 }
 
@@ -33,7 +33,7 @@ istream& operator>> (istream& is, Complex& c) {
 
 
 Complex::Complex(double real, double imag)
-            : real{real}, imag{imag} {}
+: real{real}, imag{imag} {}
 
 
 Complex::operator bool() const {
@@ -51,8 +51,8 @@ Complex Complex::operator++(int) {
     return temp;
 }
 
-Complex Complex::operator+(const Complex& c) {
-    Complex sum{real + c.real, imag + c.imag};
+Complex operator+(const Complex& c1, const Complex& c2) {
+    Complex sum{c1.get_real() + c2.get_real(), c1.get_imag() + c2.get_imag()};
     return sum;
 }
 
@@ -68,4 +68,3 @@ Complex Complex::operator*(const int i) {
     Complex prod(real * 2, imag * 2);
     return prod;
 }
-
