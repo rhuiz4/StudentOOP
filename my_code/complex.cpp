@@ -17,8 +17,11 @@ ostream& operator<< (ostream& os, const Complex& c) {
      * number of decimal places, while `showpos` turns on the plus
      * sign for positive numbers.
      * */
+<<<<<<< HEAD
     os << setprecision(10) << c.real << showpos
     << c.imag << "i" << noshowpos << endl;
+=======
+>>>>>>> upstream/master
     return os;
 }
 
@@ -27,16 +30,21 @@ ostream& operator<< (ostream& os, const Complex& c) {
  * Read a `Complex` number from an input stream.
  * */
 istream& operator>> (istream& is, Complex& c) {
+<<<<<<< HEAD
     is >> c.real >> c.imag;
+=======
+>>>>>>> upstream/master
     return is;
 }
 
+Complex::Complex(double real, double imag) {}
 
 Complex::Complex(double real, double imag)
 : real{real}, imag{imag} {}
 
 
 Complex::operator bool() const {
+<<<<<<< HEAD
     return ((real != 0) || (imag != 0));
 }
 
@@ -54,6 +62,17 @@ Complex Complex::operator++(int) {
 Complex operator+(const Complex& c1, const Complex& c2) {
     Complex sum{c1.get_real() + c2.get_real(), c1.get_imag() + c2.get_imag()};
     return sum;
+=======
+    return true;
+}
+
+Complex& Complex::operator++() {
+    return *this;
+}
+
+Complex Complex::operator++(int dummy) {
+    return *this;
+>>>>>>> upstream/master
 }
 
 double Complex::get_real() const {
@@ -65,6 +84,10 @@ double Complex::get_imag() const {
 }
 
 Complex Complex::operator*(const int i) {
+<<<<<<< HEAD
     Complex prod(real * 2, imag * 2);
     return prod;
+=======
+    return *this;
+>>>>>>> upstream/master
 }

@@ -9,8 +9,9 @@ const bool DEBUGGER = true;
 
 int main() {
     cout << "Input a complex number:\n";
-    Complex c1;
+    Complex c1{12, 13};
     // get a complex from stdin:
+<<<<<<< HEAD
     cin >> c1;
     if(!cin)
     {
@@ -66,6 +67,14 @@ int main() {
     assert(scalar_prod.get_real() == 28.4);
     assert(scalar_prod.get_imag() == 0.0);
 =======
+=======
+//    cin >> c1;
+//    if(!cin)
+//    {
+//        cerr << "Bad input format\n";
+//        exit(1);
+//    }
+>>>>>>> upstream/master
 //    if(DEBUG)
 //    {
 //        cout << "c1 = " << c1 << endl;
@@ -84,7 +93,7 @@ int main() {
 //    Complex c3 = c1 + c2;
 //    assert(c3.get_real() > 43.2);
 //    // see if `Complex` subtraction works:
-//    Complex c3 -= c2;
+//    c3 -= c2;
 //    assert(c3 == c1);
 //
 //    Complex c4 = Complex();
