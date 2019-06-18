@@ -19,9 +19,14 @@ Image::Image(const Image& img2) {
 
 }
 
+// destructor
 Image::~Image() {
 }
 
+<<<<<<< HEAD
+=======
+// assignment operator:
+>>>>>>> upstream/master
 Image& Image::operator=(const Image& img2) {
 }
 
