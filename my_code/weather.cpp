@@ -23,10 +23,7 @@ Image::Image(const Image& img2) {
 Image::~Image() {
 }
 
-<<<<<<< HEAD
-=======
 // assignment operator:
->>>>>>> upstream/master
 Image& Image::operator=(const Image& img2) {
 }
 
