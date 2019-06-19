@@ -4,19 +4,42 @@
 using namespace std;
 
 void print_vector(const MyVec& v) {
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
 }
 
 
 MyVec::MyVec() {
+    sz = 0;
+    capacity = DEF_CAPACITY;
+    data = new int[capacity];
 }
 
 MyVec::MyVec(const MyVec& v2) {
+    sz = v2.sz;
+    capacity = v2.capacity;
+    data = new int[capacity];
+    for (int i = 0; i < sz; i++) {
+        data[i] = v2.data[i];
+    }
 }
 
 MyVec::~MyVec() {
+    if (!data) delete[] data;
 }
 
 MyVec& MyVec::operator=(const MyVec& v2) {
+    if (this != &v2) {
+        if (!data) delete[] data;
+        sz = v2.sz;
+        capacity = v2.capacity;
+        for (int i = 0; i < sz; i++) {
+            data[i] = v2[i];
+        }
+    }
+    return *this;
 }
 
 
@@ -25,13 +48,31 @@ MyVec& MyVec::operator=(const MyVec& v2) {
  * the same order. (Thus they must be the same size.)
  * */
 bool operator==(MyVec& v1, MyVec& v2) {
-    return true;
+    if (v1.size() == v2.size()) {
+        for (int i = 0; i < v1.size(); i++) {
+            if (v1[i] != v2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
 }
 
 /*
  * Puts an element at the back of a vector.
  * */
 void MyVec::push_back(int val) {
+    if (sz >= capacity) {
+        capacity *= 2;
+        int* tmp = new int[capacity];
+        for (int i = 0; i < sz; i++) {
+            tmp[i] = data[i];
+        }
+        delete[] data;
+        data = tmp;
+    }
+    data[sz++] = val;
 }
 
 /*
@@ -39,7 +80,7 @@ void MyVec::push_back(int val) {
  * It returns the i-th element.
  * */
 int MyVec::operator[](int i) const {
-    return 0;
+    return data[i];
 }
 
 /*
@@ -47,6 +88,5 @@ int MyVec::operator[](int i) const {
  * It returns a reference to the i-th element.
  * */
 int& MyVec::operator[](int i) {
-    int j = 0;
-    return j;
+    return data[i];
 }

@@ -25,6 +25,7 @@ Image::~Image() {
 
 // assignment operator:
 Image& Image::operator=(const Image& img2) {
+    return *this;
 }
 
 int Image::image_sz() {
