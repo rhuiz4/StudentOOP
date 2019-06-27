@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 void print_vector(const MyVec& v) {
     for (int i : v) cout << i << " ";
     cout << endl;
@@ -118,3 +119,4 @@ void MyVec::copy(const MyVec& v2) {
 //MyVec::Iterator& MyVec::Iterator::operator++() {
 //    return *this;
 //}
+
