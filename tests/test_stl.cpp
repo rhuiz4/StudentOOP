@@ -70,14 +70,27 @@ class Cat {
  * We could pass this `is_odd()` function in to a `find_if()`,
  * or pass a *lambda* instead.
  * */
+<<<<<<< HEAD
 bool is_odd(int n) {
     cout << "in function! n is: " << n << endl;
     return (n % 2) != 0;
 }
+=======
+bool is_odd(int n) { return (n % 2) == 1; }
+>>>>>>> upstream/master
 
 /*
  * Or, we could have a *functor*!
  * */
+class IsOdd {
+    public:
+        bool operator()(int n) {
+            IsOdd::times_called++;
+            return (n % 2) == 1;
+        }
+    private:
+        static int times_called;
+};
 
 class IsOdd {
 public:
@@ -133,13 +146,23 @@ int main() {
      * But even after `clist` is reversed, `clist` and
      * `clist2` are still permutations of each other:
      * */
+    list<char> clist4 = clist;
     cout << "Is clist a permutation of clist2? "
+<<<<<<< HEAD
     << is_permutation(clist.begin(), clist.end(), clist2.begin())
     << endl; ;
     cout << "Is clist a permutation of clist3? "
     << is_permutation(clist.begin(), clist.end(), clist3.begin())
     << endl; ;
     
+=======
+        << is_permutation(clist.begin(), clist.end(), clist2.begin())
+        << endl; ;
+    cout << "Is clist4 a permutation of clist3? "
+        << is_permutation(clist4.begin(), clist4.end(), clist3.begin())
+        << endl; ;
+
+>>>>>>> upstream/master
     /*
      * Testing a list of Cats:
      * */
@@ -152,7 +175,11 @@ int main() {
      * Testing an int list:
      * */
     int ilen = 8;
+<<<<<<< HEAD
     int iptr[] = { 16, 32, 64, 9, 2, 4, 8, 17 };
+=======
+    int iptr[] = { 16, 32, 64, 128, 1, 44, 8, 17 };
+>>>>>>> upstream/master
     list<int> ilist(iptr, iptr + ilen);
     /*
      * Our print can work for lists as well as vectors:
@@ -165,9 +192,15 @@ int main() {
      * Thus lists have their own `sort()` method, called below:
      * This *won't* work: `sort(ilist.begin(), ilist.end());`
      * */
+<<<<<<< HEAD
     ilist.sort();
     print("ilist sorted", ilist);
     
+=======
+    // ilist.sort();
+//    print("ilist sorted", ilist);
+
+>>>>>>> upstream/master
     /*
      * Let's experiment with *iterators* a bit!
      * */
@@ -178,6 +211,7 @@ int main() {
     /*
      * Here we are going to pass `is_odd()` to `find_if()`.
      * */
+<<<<<<< HEAD
     
     /*
      * Here we are going to pass functor `IsOdd` to `find_if()`.
@@ -193,15 +227,46 @@ int main() {
     odd_iter2 = find_if(++odd_iter2, ilist.end(),odd_functor);
     cout << "Second functor odd number in ilist is: " << *odd_iter2 << endl;
     
+=======
+    cout << "ilist begin is: " << *(ilist.begin()) << endl;
+    cout << "ilist end is: " << *(ilist.end()) << endl;
+
+    list<int>::iterator odd_iter = find_if(ilist.begin(),
+            ilist.end(), is_odd);
+    cout << "First odd number in ilist is: " << *odd_iter << endl;
+    odd_iter++;
+    cout << "The next number in ilist is: " << *odd_iter << endl;
+
+    /*
+     * Here we are going to pass functor `IsOdd` to `find_if()`.
+     * */
+    IsOdd odd_functor = IsOdd();
+    cout << "Is 6 odd? " << odd_functor(6) << endl;
+    cout << "Is 7 odd? " << odd_functor(7) << endl;
+    list<int>::iterator odd_iter2 = find_if(ilist.begin(),
+            ilist.end(), odd_functor);
+    cout << "First odd number in ilist is: " << *odd_iter2 << endl;
+    odd_iter2++;
+    cout << "The next number in ilist is: " << *odd_iter2 << endl;
+
+>>>>>>> upstream/master
     /*
      * Here we are going to pass a *lambda* to `find_if()`.
      * The lambda starts with `[]`. The point here is to show
      * that this form and the one above are identical in effect.
      --> lambda anon func
      * */
+<<<<<<< HEAD
     list<int>::iterator odd_iter3 = find_if(ilist.begin(), ilist.end(), [](int n) {return (n%2) == 1;});
     cout << "First lambda odd number in ilist is: " << *odd_iter3 << endl;
     odd_iter3 = find_if(++odd_iter3, ilist.end(), [](int n) {return (n%2) == 1;});
     cout << "Second lambda odd number in ilist is: " << *odd_iter3 << endl;
     // cout << "First lambda odd number in list is: " << *if_iter3 << endl;
+=======
+    list<int>::iterator odd_iter3 = find_if(ilist.begin(),
+            ilist.end(), [](int n) { return (n % 2) == 1; });
+    cout << "First lambda odd number in ilist is: " << *odd_iter3 << endl;
+    odd_iter3++;
+    cout << "The next lambda number in ilist is: " << *odd_iter3 << endl;
+>>>>>>> upstream/master
 }

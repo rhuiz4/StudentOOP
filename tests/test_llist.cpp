@@ -47,7 +47,7 @@ int main() {
     lastp = last(reversed);
     assert(lastp->data == 8);
 
-/*
+
 // now duplicate it:
     Node* dupe = duplicate(head);
     cout << "Duplicate: \n";
@@ -62,5 +62,5 @@ int main() {
     print_list(cout, head);
     lastp = last(head);
     assert(lastp->data == 8);
-*/
+
 }

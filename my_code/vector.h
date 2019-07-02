@@ -4,6 +4,7 @@ const int DEF_CAPACITY = 10;
 const int CAPACITY_MULT = 2;
 
 class MyVec {
+<<<<<<< HEAD
 public:
         class Iterator {
         /*
@@ -16,6 +17,18 @@ public:
          * */
             friend bool operator!=(Iterator& rhs, Iterator& lhs) {
                 return rhs.iptr != lhs.iptr;
+=======
+    public:
+        MyVec() : sz(0), capacity(DEF_CAPACITY) {
+            data = new T[DEF_CAPACITY];
+        }
+
+        MyVec(int sz, T val) : sz{sz} {
+            capacity = sz * 2;
+            data = new T[capacity];
+            for (int i = 0; i < sz; i++) {
+                data[i] = val;
+>>>>>>> upstream/master
             }
 
         public:
@@ -31,9 +44,11 @@ public:
             int* iptr;
         };
 
+
         /*
          * Puts an element at the back of a vector.
          * */
+<<<<<<< HEAD
 
         MyVec() {
             sz = 0;
@@ -72,6 +87,19 @@ public:
             data = new int[capacity * CAPACITY_MULT];
             for (int i = 0; i < sz; i++) {
                 data[i] = old_data[i];
+=======
+        void push_back(T val) {
+            sz++;
+            if (sz > capacity) {
+                std::cout << "Increasing capacity\n";
+                T* old_data = data;
+                data = new T[capacity * CAPACITY_MULT];
+                for (int i = 0; i < sz; i++) {
+                    data[i] = old_data[i];
+                }
+                capacity *= CAPACITY_MULT;
+                delete [] old_data;
+>>>>>>> upstream/master
             }
             capacity *= CAPACITY_MULT;
             delete [] old_data;
