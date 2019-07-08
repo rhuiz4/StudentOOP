@@ -1,6 +1,8 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
+#include <string>
+
 
 class Complex {
     friend std::ostream& operator<< (std::ostream& os, const Complex& c);
@@ -12,23 +14,24 @@ class Complex {
      * `imag`, so can be called with no arguments.
      * */
     Complex(double real=0.0, double imag=0.0);
+    explicit Complex(std::string s) : real(0.0), imag(0.0) {}
 
     /*
      * The `bool` operator tests to see if either
      * data member is non-zero, and returns `true`
      * if so.
      * */
-    explicit operator bool() const;
+//    operator bool() const;
     
     /*
      * Get the real component:
      * */
-    double get_real() const;
+    double get_real() const { return real; }
     
     /*
      * Get the imaginary component:
      * */
-    double get_imag() const;
+    double get_imag() const { return imag; }
 
     /*
      * This overload is pre-increment: pretty straightforward:

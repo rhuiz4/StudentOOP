@@ -6,8 +6,12 @@
 using namespace std;
 
 bool operator== (const Complex& c1, const Complex& c2) {
+<<<<<<< HEAD
     return (c1.get_real() == c2.get_real())
     && (c1.get_imag() == c2.get_imag());
+=======
+    return (c1.get_real() == c2.get_real()) && (c1.get_imag() == c2.get_imag());
+>>>>>>> upstream/master
 }
 
 ostream& operator<< (ostream& os, const Complex& c) {
@@ -37,8 +41,10 @@ istream& operator>> (istream& is, Complex& c) {
     return is;
 }
 
-Complex::Complex(double real, double imag) {}
+Complex::Complex(double real, double imag) : real(real), imag(imag)
+    {}
 
+<<<<<<< HEAD
 Complex::Complex(double real, double imag)
 : real{real}, imag{imag} {}
 
@@ -64,7 +70,13 @@ Complex operator+(const Complex& c1, const Complex& c2) {
     return sum;
 =======
     return true;
+=======
+    /*
+Complex::operator bool() const {
+    return (real != 0.0) && (imag != 0.0);
+>>>>>>> upstream/master
 }
+*/
 
 Complex& Complex::operator++() {
     return *this;
@@ -73,14 +85,6 @@ Complex& Complex::operator++() {
 Complex Complex::operator++(int dummy) {
     return *this;
 >>>>>>> upstream/master
-}
-
-double Complex::get_real() const {
-    return real;
-}
-
-double Complex::get_imag() const {
-    return imag;
 }
 
 Complex Complex::operator*(const int i) {

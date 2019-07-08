@@ -85,11 +85,8 @@ bool is_odd(int n) { return (n % 2) == 1; }
 class IsOdd {
     public:
         bool operator()(int n) {
-            IsOdd::times_called++;
             return (n % 2) == 1;
         }
-    private:
-        static int times_called;
 };
 
 class IsOdd {
@@ -176,9 +173,13 @@ int main() {
      * */
     int ilen = 8;
 <<<<<<< HEAD
+<<<<<<< HEAD
     int iptr[] = { 16, 32, 64, 9, 2, 4, 8, 17 };
 =======
     int iptr[] = { 16, 32, 64, 128, 1, 44, 8, 17 };
+>>>>>>> upstream/master
+=======
+    int iptr[] = { 16, 32, 64, 128, 256, 512, 1024, 1, 44, 8, 17 };
 >>>>>>> upstream/master
     list<int> ilist(iptr, iptr + ilen);
     /*
@@ -265,8 +266,20 @@ int main() {
 =======
     list<int>::iterator odd_iter3 = find_if(ilist.begin(),
             ilist.end(), [](int n) { return (n % 2) == 1; });
+<<<<<<< HEAD
     cout << "First lambda odd number in ilist is: " << *odd_iter3 << endl;
     odd_iter3++;
     cout << "The next lambda number in ilist is: " << *odd_iter3 << endl;
+>>>>>>> upstream/master
+=======
+    cout << "Using lambda first odd number in ilist is: " << *odd_iter3 << endl;
+
+    list<int>::iterator even_iter = find_if(ilist.begin(),
+            ilist.end(), [](int n) { return (n % 2) == 0; });
+    cout << "Using lambda first even number in ilist is: " << *even_iter << endl;
+
+    list<int>::iterator big_iter = find_if(ilist.begin(),
+            ilist.end(), [](int n) { return (n > 999); });
+    cout << "Using lambda first big number in ilist is: " << *big_iter << endl;
 >>>>>>> upstream/master
 }
